@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.junit.Test;
+import static junit.framework.Assert.assertTrue;
 
 /**
  * Created by IntelliJ IDEA.
@@ -15,11 +16,12 @@ import org.junit.Test;
 public class GoogleSearchTest {
 
     @Test
-    public void whenSearcingForWebDriverUrlShouldBePresentInSearchResults() {
+    public void whenSearchingForWebDriverUrlShouldBePresentInSearchResults() {
         WebDriver driver = new FirefoxDriver();
         driver.navigate().to("http://www.google.com/");
         SearchPage searchPage = createSearchPage(driver);
-        searchPage.searchFor("webdriver");
+        SearchResultPage resultPage = searchPage.searchFor("webdriver");
+        assertTrue(resultPage.isLinkPresentInResults("http://code.google.com/p/webdriver/"));
     }
 
     private SearchPage createSearchPage(WebDriver driver) {
