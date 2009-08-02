@@ -6,13 +6,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.junit.Test;
 import static junit.framework.Assert.assertTrue;
 
-/**
- * Created by IntelliJ IDEA.
- * User: Vegard Hartmann
- * Date: 02.aug.2009
- * Time: 15:24:36
- * To change this template use File | Settings | File Templates.
- */
 public class GoogleSearchTest {
 
     @Test

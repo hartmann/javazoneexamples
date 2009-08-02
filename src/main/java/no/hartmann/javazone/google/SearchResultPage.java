@@ -4,13 +4,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-/**
- * Created by IntelliJ IDEA.
- * User: Vegard Hartmann
- * Date: 02.aug.2009
- * Time: 15:37:42
- * To change this template use File | Settings | File Templates.
- */
 public class SearchResultPage {
     private WebDriver driver;
 
