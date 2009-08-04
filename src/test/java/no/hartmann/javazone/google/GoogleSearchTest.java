@@ -11,7 +11,7 @@ public class GoogleSearchTest {
     @Test
     public void whenSearchingForWebDriverUrlShouldBePresentInSearchResults() {
         WebDriver driver = new FirefoxDriver();
-        driver.navigate().to("http://www.google.com/");
+        driver.get("http://www.google.com/");
         SearchPage searchPage = createSearchPage(driver);
         SearchResultPage resultPage = searchPage.searchFor("webdriver");
         assertTrue(resultPage.isLinkPresentInResults("http://code.google.com/p/webdriver/"));
