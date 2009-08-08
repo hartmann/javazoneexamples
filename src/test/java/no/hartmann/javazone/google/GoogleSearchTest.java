@@ -6,28 +6,40 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.junit.Test;
+import org.junit.Before;
+import org.junit.After;
 import static junit.framework.Assert.assertTrue;
 import static junit.framework.Assert.assertNotNull;
 
 public class GoogleSearchTest {
+    private WebDriver driver;
 
     @Test
     public void whenSearchingForWebDriverUrlShouldBePresentInSearchResults() {
-        WebDriver driver = new FirefoxDriver();
-        driver.get("http://www.google.com/");
         SearchPage searchPage = createSearchPage(driver);
         SearchResultPage resultPage = searchPage.searchFor("webdriver");
         assertTrue(resultPage.isLinkPresentInResults("http://code.google.com/p/webdriver/"));
     }
 
     @Test
-    public void whenSearchingForWebDriverResultPageShouldContainLinkWithWordWebDriver() {
-        WebDriver driver = new FirefoxDriver();
-        driver.get("http://www.google.com/");
-        WebElement searchField = driver.findElement(By.name("q"));
+    public void searchForWebDriverResultShouldContainLinkWithWordWebDriver() {
+        WebDriver webDriver = new FirefoxDriver();
+        webDriver.get("http://www.google.com/");
+        WebElement searchField = webDriver.findElement(By.name("q"));
         searchField.sendKeys("webdriver");
         searchField.submit();
-        assertNotNull(driver.findElement(By.partialLinkText("webdriver")));
+        assertNotNull(webDriver.findElement(By.partialLinkText("webdriver")));
+    }
+
+    @Before
+    public void setUp() {
+        driver = new FirefoxDriver();
+        driver.get("http://www.google.com/");
+    }
+
+    @After
+    public void teardown() {
+        driver.quit();
     }
 
     private SearchPage createSearchPage(WebDriver driver) {
