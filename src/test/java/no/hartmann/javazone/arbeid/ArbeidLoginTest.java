@@ -11,7 +11,7 @@ import static no.hartmann.javazone.arbeid.ArbeidPageMother.PAGE_MOTHER;
 public class ArbeidLoginTest {
     private WebDriver driver;
 
-    @Test
+    //@Test
     public void shouldGoToDinSideAfterSuccessfulLogin() {
         LoginPage loginPage = PAGE_MOTHER.createLoginPage();
         DinSidePage dinSidePage = loginPage.loginAs("gyldigbruker", "gyldigpassord");

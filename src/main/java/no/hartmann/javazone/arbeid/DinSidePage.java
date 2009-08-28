@@ -10,6 +10,6 @@ public class DinSidePage {
     private WebElement tittelheader;
 
     public boolean isCurrentPage() {
-        return null != tittelheader;
+        return "Din side".equals(tittelheader.getText());
     }
 }
